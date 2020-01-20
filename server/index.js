@@ -4,6 +4,7 @@ const session = require('express-session');
 const massive = require('massive');
 const authCtrl = require('./controllers/authController');
 const itemCtrl = require("./controllers/itemController");
+//const stripe = require("stripe")("pk_test_fmciBAtTdkCdeMAM0R0aM77h00sVcqhpVF");
 const app = express();
 
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
@@ -23,6 +24,8 @@ app.use(
     })
   );
 
+  app.use( express.static( `${__dirname}/../build` ) );
+
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
     console.log("connected")
@@ -39,4 +42,4 @@ app.get('/auth/logout', authCtrl.logout);
 
 //products routes
 app.get("/products", itemCtrl.getAllItems)
-
+app.get("/products/ForMen", itemCtrl.getForMen)

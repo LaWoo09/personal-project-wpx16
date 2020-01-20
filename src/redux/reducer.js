@@ -4,7 +4,8 @@ import axios from "axios";
 //set initial state
 const initialState = {
     user: {},
-    products: {}
+    products: {},
+    cart: []
 }
 
 //constants
@@ -32,6 +33,13 @@ export function logout() {
     }
 }
 
+export function addToCart(product) {
+    return {
+        type: ADD_TO_CART,
+        payload: product
+    }
+}
+
 
 //reducer
 
@@ -43,6 +51,12 @@ export default function reducer(state = initialState, action ) {
                 ...state,
                 user: payload
             }
+
+            case ADD_TO_CART: 
+                return {
+                    ...state,
+                    cart: [...state.cart, payload]
+                }
             case LOGOUT: 
             return {
                 ...state,

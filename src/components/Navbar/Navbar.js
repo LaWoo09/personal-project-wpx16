@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
     
     return <div>
-        <Link to="">Skin Care</Link>
-        <Link to="">Beauty</Link>
-        <Link to="">For Men</Link>
-        <Link to="">Hair</Link>
+        <Link to="/products/SkinCare">Skin Care</Link>
+        <Link to="/products/Beauty">Beauty</Link>
+        <Link to="/products/ForMen">For Men</Link>
+        <Link to="/products/Hair">Hair</Link>
     </div>
 }
