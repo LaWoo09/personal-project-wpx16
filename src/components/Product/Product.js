@@ -46,7 +46,8 @@ class Product extends React.Component {
             this.props.product.product_price = newPrice
             this.props.addToCart(this.props.product);
         } else {
-            this.props.product.qty++;   
+            this.props.product.qty = this.props.product.qty + this.state.count; 
+            this.props.product.product_price = this.props.product.product_price + this.state.price;  
         } 
     }
 

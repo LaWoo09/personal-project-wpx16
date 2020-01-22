@@ -45,6 +45,7 @@ class Login extends React.Component {
                 </div>
                  <div>
                     <input
+                    name="password"
                     type="password"
                     onChange={(event) => this.changeHandler(event.target.name, event.target.value)}
                     placeholder="password"

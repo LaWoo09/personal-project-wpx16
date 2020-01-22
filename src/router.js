@@ -9,6 +9,8 @@ import Beauty from "./components/Beauty/Beauty";
 import Hair from "./components/Hair/Hair";
 import SkinCare from "./components/SkinCare/SkinCare";
 import ForMen from "./components/ForMen/ForMen";
+import Account from "./components/Account/Account";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 
 
 export default (
@@ -16,6 +18,8 @@ export default (
         <Route path="/" component={HomePage} exact/>
         <Route path="/auth/register" component={Registration}/>
         <Route path="/auth/login" component={Login}/>
+        <Route path="/auth/Account" component={Account}/>
+        <Route path="/auth/ForgotPassword" component={ForgotPassword}/>
         <Route path="/cart" component={Cart}/>
         <Route path="/products/Beauty" component={Beauty}/>
         <Route path="/products/Hair" component={Hair}/>

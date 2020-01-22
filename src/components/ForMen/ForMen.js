@@ -29,7 +29,8 @@ class ForMen extends React.Component {
     render() {
         const { formen } = this.state;
         const mappedItems = formen.map(product => {
-            return <Product key={product.id} product={product}/>
+           
+            return <Product key={product.product_id} product={product}/>
         })
 
         return (

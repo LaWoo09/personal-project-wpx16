@@ -40,6 +40,14 @@ export function addToCart(product) {
     }
 }
 
+export function removeFromCart(products) {
+    return {
+        type: REMOVE_FROM_CART,
+        payload: products
+    }
+}
+
+
 
 //reducer
 
@@ -57,11 +65,17 @@ export default function reducer(state = initialState, action ) {
                     ...state,
                     cart: [...state.cart, payload]
                 }
+
             case LOGOUT: 
-            return {
-                ...state,
-                user: {}
-            }
+                return {
+                    ...state,
+                    user: {}
+                }
+            case REMOVE_FROM_CART:
+                return {
+                    ...state,
+                    cart: [...payload]
+                }    
 
 
         default: return state;
