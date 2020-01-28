@@ -8,7 +8,8 @@ class ForgotPassword extends React.Component {
         super();
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            confirmedPassword: ""
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.updatePassword = this.updatePassword.bind(this);

@@ -46,6 +46,7 @@ app.post('/auth/login', authCtrl.login);
 app.get('/auth/logout', authCtrl.logout);
 app.post("/auth/ForgotPassword", authCtrl.sendEmail);
 app.put("/auth/ForgotPassword", authCtrl.forgotPassword);
+app.delete('/auth/Account', authCtrl.deleteAccount)
 //products routes
 
 app.get("/products/ForMen", itemCtrl.getForMen);

@@ -1,0 +1,10 @@
+.Navbar {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    
+}
+
+.Navbar > Link {
+    animation: none;
+}

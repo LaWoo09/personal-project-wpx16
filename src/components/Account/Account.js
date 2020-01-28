@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown, Input } from "semantic-ui-react";
 import { connect } from "react-redux";
+import axios from "axios";
 
 
 
@@ -16,6 +17,7 @@ class Account extends React.Component {
         }
         this.isEditing = this.isEditing = this.isEditing.bind(this);
         this.changeHandler = this.changeHandler.bind(this);
+        this.deleteAccount = this.deleteAccount.bind(this);
     }
 
 isEditing() {
@@ -31,13 +33,18 @@ changeHandler(key, value) {
     })
 }
 
+deleteAccount() {
+    const { email } = this.props.user
+    axios.delete("/auth/Account", {email})
+}
+
 
     render() {
-     
+     console.log(this.props)
         return (
             <div>
-               
-               <button>Delete Account</button>
+               <div><input/></div>
+               <button onClick={this.deleteAccount}>Delete Account</button>
             </div>
         )
     }

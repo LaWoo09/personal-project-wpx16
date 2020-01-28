@@ -29,7 +29,8 @@ function Header(props) {
                 <div><Link to="/" onClick={logout}>Logout</Link> / <Link to="/auth/Account">Account</Link>
                 <h1>Welcome, {user.username.toUpperCase()}</h1><Link to="/cart">Cart</Link></div>}
                 <img src="https://via.placeholder.com/150" alt="logo"/>
-                <p className="mission">THE CONNECTION BETWEEN LOVE, BEAUTY, AND HAIR</p>
+                <h1 className="business">PRO-TOUCH</h1>
+                <p className="mission">the connection between love, beauty and hair</p>
                 <Navbar/>
             </div>
            

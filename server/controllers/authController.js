@@ -84,8 +84,8 @@ module.exports = {
             port : 587,
             secure: false,
             auth: {
-              user: testAccount.user,
-              pass: testAccount.pass
+              user: process.env.EMAIL,
+              pass: process.env.PASSWORD
             }
           });
           let mailOptions = {
@@ -104,6 +104,22 @@ module.exports = {
                 res.sendStatus(200)
             }
           })
+    },
+    deleteAccount: async (res, req, next) => {
+        const {email} = req.body;
+        const db = req.app.get("db");
+        const emailResult = await db.get_user_email(email);
+        const existingEmail = emailResult[0];
+        if(!existingEmail) {
+            return res.status(409).send("Email not found")
+        } else {
+            req.session.destroy();
+            
+            await db.delete_user(email)
+            res.sendStatus(200);
+        }
+        
+
     }
 
 }

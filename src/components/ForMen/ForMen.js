@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Product from "../Product/Product"
-
+import "./ForMen.css"
 
 class ForMen extends React.Component {
     constructor(){
@@ -34,7 +34,7 @@ class ForMen extends React.Component {
         })
 
         return (
-        <div>{mappedItems}</div>
+        <div className="ForMen">{mappedItems}</div>
         )
     }
 
