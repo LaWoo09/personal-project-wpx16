@@ -5,7 +5,8 @@ const massive = require('massive');
 const authCtrl = require('./controllers/authController');
 const itemCtrl = require("./controllers/itemController");
 const cartCtrl = require("./controllers/cartController");
-const nodemailer = require("nodemailer");
+const orderCtrl = require('./controllers/ordersController');
+
 
 const stripe = require("stripe")("sk_test_TUpCkOMjbyuI7ndRqt2D0qaS00ujNcuwZL");
 const app = express();
@@ -56,3 +57,4 @@ app.get("/products/Hair", itemCtrl.getHair);
 
 //cart
 app.post("/cart", cartCtrl.checkout);
+app.get("/order_history", orderCtrl.getOrderHistory);

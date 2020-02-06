@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+
 const nodemailer = require("nodemailer")
 module.exports = {
     register: async (req, res, next) => {
@@ -78,9 +79,9 @@ module.exports = {
     sendEmail: async (req,res,next) => {
         const { email } = req.body;
         console.log(email)
-        let testAccount = await nodemailer.createTestAccount();
+        console.log(process.env.PASSWORD)
         let transporter = nodemailer.createTransport({
-            host: "smtp.ethreal.email",
+            service: "gmail",
             port : 587,
             secure: false,
             auth: {
@@ -89,8 +90,8 @@ module.exports = {
             }
           });
           let mailOptions = {
-            from: testAccount.user,
-            to: {email},
+            from: "PRO_TOUCH QA",
+            to: email,
             subject: "Password",
             text: 'Postcard',
             html: "Password Updated"
@@ -105,7 +106,8 @@ module.exports = {
             }
           })
     },
-    deleteAccount: async (res, req, next) => {
+    deleteAccount: async (req, res, next) => {
+        
         const {email} = req.body;
         const db = req.app.get("db");
         const emailResult = await db.get_user_email(email);
@@ -113,9 +115,9 @@ module.exports = {
         if(!existingEmail) {
             return res.status(409).send("Email not found")
         } else {
+            await db.delete_user(email)
             req.session.destroy();
             
-            await db.delete_user(email)
             res.sendStatus(200);
         }
         

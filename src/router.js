@@ -11,7 +11,7 @@ import SkinCare from "./components/SkinCare/SkinCare";
 import ForMen from "./components/ForMen/ForMen";
 import Account from "./components/Account/Account";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-
+import Orders from "./components/Orders/Orders";
 
 export default (
     <Switch>
@@ -25,5 +25,6 @@ export default (
         <Route path="/products/Hair" component={Hair}/>
         <Route path="/products/ForMen" component={ForMen}/>
         <Route path="/products/SkinCare" component={SkinCare}/>
+        <Route path="/orders" component={Orders}/>
     </Switch>
 )

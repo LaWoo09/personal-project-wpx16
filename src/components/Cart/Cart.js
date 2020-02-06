@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card, CardSubtitle, CardBody, CardImg, CardTitle, CardText } from "reactstrap";
 import { connect } from "react-redux";
+//import component
 import StripeCheckout from "react-stripe-checkout";
 import {removeFromCart} from "../../redux/reducer";
 import axios from "axios"
@@ -21,7 +22,9 @@ class Cart extends React.Component {
            
     }
 
-    async handleToken (token, addresses, products) {
+    async handleToken (token, addresses) {
+        const products = [...this.props.cart]
+        console.log(products)
         console.log({token, addresses})
         
        const response = await axios.post("/cart", { token, addresses });
@@ -76,7 +79,9 @@ class Cart extends React.Component {
                     <div>{mappedItems}</div>
                     <div>
                     <div>Total:${allTotals}</div>
+                            {/*displays Stripe checkout button */}
                         <StripeCheckout stripeKey="pk_test_fmciBAtTdkCdeMAM0R0aM77h00sVcqhpVF"
+                            // {/*get access to created token with user information */}
                          token={this.handleToken}
                          billingAddress
                          shippingAddress

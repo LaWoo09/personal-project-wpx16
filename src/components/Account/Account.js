@@ -10,12 +10,11 @@ class Account extends React.Component {
     constructor() {
         super();
         this.state = {
-            username: "",
+           
             email: "",
-            password: "",
-            editing: false
+        
         }
-        this.isEditing = this.isEditing = this.isEditing.bind(this);
+        
         this.changeHandler = this.changeHandler.bind(this);
         this.deleteAccount = this.deleteAccount.bind(this);
     }
@@ -34,16 +33,23 @@ changeHandler(key, value) {
 }
 
 deleteAccount() {
-    const { email } = this.props.user
+    
+    const { email } = this.state
+   
     axios.delete("/auth/Account", {email})
 }
 
 
     render() {
-     console.log(this.props)
+     console.log("ok:", this.props.user)
+     console.log(this.state.email)
         return (
             <div>
-               <div><input/></div>
+               <div> <input
+                     name="email" required onChange={(event) => this.changeHandler(event.target.name, event.target.value)} 
+                    type="text"
+                    placeholder="Email"
+                    /></div>
                <button onClick={this.deleteAccount}>Delete Account</button>
             </div>
         )
