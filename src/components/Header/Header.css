@@ -1,14 +1,13 @@
 .container {
     background-color: rgb(255, 125, 147);
+    padding: 16px 0;
 }
 
 .mission {
     color: white;
     font-family: cursive;
     font-size: x-large;
-   
     text-transform: capitalize;
-    
     letter-spacing: 1px;
 }
 

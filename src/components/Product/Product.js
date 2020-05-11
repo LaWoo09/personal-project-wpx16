@@ -55,16 +55,14 @@ class Product extends React.Component {
     
     render() { 
         const { product } = this.props;
-       console.log(this.props.cart)
         return (
-            <div>
+            <div >
                 <div><label>Name:{product.product_name}</label></div>
                 <img src={product.img} alt="product-img"/>
                 <div>Price:${this.state.price}</div>
                
                 <div><button onClick={this.decrement}/>Qty:{this.state.count}<button onClick={this.increment}/></div>
                 <button onClick={this.addToCart}>Add To Cart</button>
-                
             </div>
         )
     }

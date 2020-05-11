@@ -32,7 +32,7 @@ class SkinCare extends React.Component {
             
         
         return (
-            <div>
+            <div className='skinItems'>
                 {mappedItems}
             </div>
         )

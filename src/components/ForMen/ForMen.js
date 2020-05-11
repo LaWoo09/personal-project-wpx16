@@ -34,7 +34,9 @@ class ForMen extends React.Component {
         })
 
         return (
-        <div className="ForMen">{mappedItems}</div>
+        <div className="ForMen">
+            {mappedItems}
+        </div>
         )
     }
 

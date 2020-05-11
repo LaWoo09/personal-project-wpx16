@@ -10,11 +10,8 @@ class Account extends React.Component {
     constructor() {
         super();
         this.state = {
-           
             email: "",
-        
         }
-        
         this.changeHandler = this.changeHandler.bind(this);
         this.deleteAccount = this.deleteAccount.bind(this);
     }
@@ -25,17 +22,14 @@ isEditing() {
     })
 }
 
-
 changeHandler(key, value) {
     this.setState({
         [key]: value
     })
 }
 
-deleteAccount() {
-    
+deleteAccount() {    
     const { email } = this.state
-   
     axios.delete("/auth/Account", {email})
 }
 
@@ -45,11 +39,13 @@ deleteAccount() {
      console.log(this.state.email)
         return (
             <div>
-               <div> <input
+               <div> 
+                   <input
                      name="email" required onChange={(event) => this.changeHandler(event.target.name, event.target.value)} 
                     type="text"
                     placeholder="Email"
-                    /></div>
+                    />
+                </div>
                <button onClick={this.deleteAccount}>Delete Account</button>
             </div>
         )

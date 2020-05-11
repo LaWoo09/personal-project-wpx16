@@ -29,7 +29,10 @@ updateUser(user) {
     return (
       <div className="App">
           <Header user={user}/>
-          {router}
+          <Navbar/>
+          <div className='productContainer'>
+            {router}
+          </div>   
       </div>
     );
   }

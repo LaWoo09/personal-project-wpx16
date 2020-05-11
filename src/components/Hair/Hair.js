@@ -31,7 +31,7 @@ class Hair extends React.Component {
             return <Product key={product.product_id} product={product}/>
         })
         return (
-            <div>
+            <div className="hair">
                 {mappedItems}
             </div>
         )
